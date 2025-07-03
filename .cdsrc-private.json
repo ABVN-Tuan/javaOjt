@@ -1,0 +1,34 @@
+{
+  "requires": {
+    "[hybrid]": {
+      "db": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+          "org": "f9dd14a9trial",
+          "space": "dev",
+          "instance": "ojtWithJava-db",
+          "key": "ojtWithJava-db-key"
+        },
+        "kind": "hana",
+        "vcap": {
+          "name": "db"
+        }
+      },
+      "auth": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+          "org": "f9dd14a9trial",
+          "space": "dev",
+          "instance": "backendJava-xsuaa",
+          "key": "backendJava-xsuaa-key"
+        },
+        "kind": "xsuaa-auth",
+        "vcap": {
+          "name": "auth"
+        }
+      }
+    }
+  }
+}

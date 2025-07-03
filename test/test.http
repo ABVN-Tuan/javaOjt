@@ -1,0 +1,54 @@
+@server = http://localhost:5000/odata/v4
+
+GET {{server}}/ojt/Employees
+###
+GET {{server}}/ojt/Roles
+###
+GET {{server}}/ojt/whoami
+###
+GET {{server}}/ojt/Departments
+
+###
+POST {{server}}/ojt/Departments
+Content-Type: application/json
+
+{   
+    "name": "FI"
+ }
+
+###
+POST {{server}}/ojt/Roles
+Content-Type: application/json
+
+{   
+    "name": "expert",
+    "baseSalary":1000
+ }
+
+###
+POST {{server}}/ojt/Employees?$expand=role
+Content-Type: application/json
+
+{   "dateOfBirth": "2001-01-14",
+    "hireDate": "2028-01-15",
+    "firstName" : "tess2",
+    "lastName" : "Nguyen",
+    "email" : "bla@gmail.com",
+    "role_ID":"783493b1-5c9d-40cf-ab7d-e35543e785cb",
+    "department_ID" : "3642cd59-22c1-4245-9c49-7a437f5480f2"
+ }
+###
+POST {{server}}/ojt/calEmpSalary
+Content-Type: application/json
+
+{
+  "Employee": {
+    "ID": "04e89091-6474-499d-88bc-cde367863e30",
+    "hireDate": "2018-01-15",
+    "role_ID": "783493b1-5c9d-40cf-ab7d-e35543e785cb",
+    "performanceRating": 0
+  }
+}
+
+###
+GET {{server}}/ojt/whoami

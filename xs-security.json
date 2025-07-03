@@ -1,0 +1,39 @@
+{
+ "xsappname": "backendJava-hybrid",
+ "tenant-mode": "dedicated",
+ "oauth2-configuration": {
+  "redirect-uris": [
+   "http://*.localhost:5000/**",
+   "https://*.hana.ondemand.com/**",
+   "https://*.applicationstudio.cloud.sap/**"
+  ]
+ },
+ "scopes": [
+  {
+   "name": "$XSAPPNAME.employee",
+   "description": "javaEmployee"
+  },
+  {
+   "name": "$XSAPPNAME.admin",
+   "description": "javaAdmin"
+  }
+ ],
+ "attributes": [],
+ "role-templates": [
+  {
+   "name": "javaViewer",
+   "description": "Viewer role",
+   "scope-references": [
+    "$XSAPPNAME.employee"
+   ]
+  },
+  {
+   "name": "javaAdmin",
+   "description": "Admin role",
+   "scope-references": [
+    "$XSAPPNAME.admin"
+   ]
+  }
+ ],
+ "authorities-inheritance": false
+}

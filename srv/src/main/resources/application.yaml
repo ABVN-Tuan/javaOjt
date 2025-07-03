@@ -1,0 +1,42 @@
+
+---
+spring:
+  security:
+    enabled: false
+  config.activate.on-profile: default
+  sql.init.platform: h2
+  h2:
+        console:
+            settings:
+                web-allow-others: true
+cds:
+  data:
+    db:
+      vcapp: true
+  data-source.auto-config.enabled: false
+  security:
+        authentication:
+            mode: xsuaa
+---
+management:
+  endpoint:
+    health:
+      show-components: always
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  health:
+    defaults:
+      enabled: false
+    ping:
+      enabled: true
+    db:
+      enabled: true
+---
+spring:
+    profiles.active: cloud
+cds:
+    index-page.enabled: true
