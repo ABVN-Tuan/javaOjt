@@ -5,7 +5,6 @@ import com.sap.cds.services.handler.annotations.On;
 import java.util.Collection;
 import java.util.Map;
 import com.sap.cds.Result;
-
 import java.math.BigDecimal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Component;
 import com.sap.cds.services.EventContext;
 import com.sap.cds.ql.Select;
 import com.sap.cds.services.handler.EventHandler;
-import com.sap.cds.services.handler.annotations.Before;
 import com.sap.cds.services.handler.annotations.ServiceName;
 import com.sap.cds.services.persistence.PersistenceService;
 import cds.gen.myservice.MyService_;
@@ -51,6 +49,7 @@ public class myServiceHandler implements EventHandler {
   @On(event = { WhoamiContext.CDS_NAME })
   public void whoami(WhoamiContext context) {
     Collection<String> roles = userInfo.getRoles();
+    System.out.println(roles);
     for (String role : roles) {
       if ("admin".equals(role)) {
         context.setResult("admin");

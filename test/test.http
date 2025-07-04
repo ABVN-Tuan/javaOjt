@@ -1,4 +1,4 @@
-@server = http://localhost:5000/odata/v4
+@server = http://localhost:8080/odata/v4
 
 GET {{server}}/ojt/Employees
 ###
